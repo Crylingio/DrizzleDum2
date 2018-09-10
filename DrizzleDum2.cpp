@@ -1,6 +1,6 @@
 //Drizzle Dum 2: The Goblin's Return
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "windows.h"
 #include <conio.h>
 #include <iostream>
@@ -14,10 +14,20 @@ using namespace std;
 random_device rng;
 struct goblin {
 	string name = "Not my Goblin";
-
+    string race;
 
 	int ca = 11;
 	int co = 15;
+
+	int str = 5;
+    int con = 5;
+	int wis = 5;
+	int dex = 5;
+	int crt = 1;
+
+	double meleeprof = 1.00;
+	double spellprof = 1.00;
+	double critprof = 2.00;
 
 } Gob;
 
@@ -110,11 +120,114 @@ void creation() {
 		cout << "name";
 		swapColor();
 		cout << "?" << endl;
-		swapColor();
 		getline(cin, nameget);
+		Gob.name = nameget;
 		while (creationloop == true) {
 			system("cls");
-			cout << "-*- Goblin Creation II -*-\n\n"
+			cout << "-*- Goblin Creation II -*-\n" << endl;
+			swapColor();
+			cout << "1";
+			swapColor();
+			cout << ") Choose a Race" << endl;
+			swapColor();
+			cout << "2";
+			swapColor();
+			cout << ") Choose a Class" << endl;
+			swapColor();
+			cout << "3";
+			swapColor();
+			cout << ") Choose a Proficiency\n\n-*- Current Stats -*-\n\nName: ";
+			swapColor();
+			cout << Gob.name;
+			swapColor();
+			cout << "\nRace: ";
+			swapColor();
+			cout << Gob.race;
+			swapColor();
+			cout << "\n";
+			temp1 = waitForKey();
+            switch(temp1) {
+            case 1:
+                system("cls");
+                cout << "-*- Goblin Creation - Races -*-\n" << endl;
+                swapColor();
+                cout << "1";
+                swapColor();
+                cout << ") Goblin\n    + ";
+                swapColor();
+                cout << "2";
+                swapColor();
+                cout << " Dexterity || - ";
+                swapColor();
+                cout << "1";
+                swapColor();
+                cout << " Constitution\n    Goblins are fast and sneaky creatures. They are proficient in stealth but they lack necessary defenses.\n" << endl;
+                 swapColor();
+                cout << "2";
+                swapColor();
+                cout << ") Half-Orc\n    + ";
+                swapColor();
+                cout << "2";
+                swapColor();
+                cout << " Constitution || + ";
+                swapColor();
+                cout << "1";
+                swapColor();
+                cout << " Strength || - ";
+                swapColor();
+                cout << "2";
+                swapColor();
+                cout << " Dexterity\n    Half-orcs are strong and dangerous-- however, they have a slower movement speed and dodge less due to this.\n" << endl;
+                swapColor();
+                cout << "3";
+                swapColor();
+                cout << ") Tornal\n    + ";
+                swapColor();
+                cout << "2";
+                swapColor();
+                cout << " Wisdom || + ";
+                swapColor();
+                cout << "1";
+                swapColor();
+                cout << " Dexterity || - ";
+                swapColor();
+                cout << "1 ";
+                swapColor();
+                cout << "Constitution \n   The Tornal were artificially created by mages to be apprentices. They are similar in size to a Goblin, however \n   they are much smarter.\n" << endl;
+                temp2 = waitForKey();
+                switch(temp2) {
+                case 1:
+                Gob.dex = 7;
+                Gob.con = 4;
+                Gob.race = "Goblin";
+                break;
+                case 2:
+                Gob.con = 7;
+                Gob.str = 6;
+                Gob.dex = 3;
+                Gob.race = "Half-Orc";
+                break;
+                case 3:
+                Gob.wis = 7;
+                Gob.dex = 6;
+                Gob.con = 4;
+                Gob.race = "Tornal";
+                break;
+
+                }
+            break;
+            case 2:
+                system("cls");
+                cout << "-*- Goblin Creation - Classes -*-\n" << endl;
+                swapColor();
+                cout << "1";
+                swapColor();
+                cout << ") ";
+            break;
+            case 3:
+
+            break;
+            }
 
 
 	}
